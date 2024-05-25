@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prisoner's Dilemma Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; }
+        .choices { margin: 20px 0; }
+        .scores { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prisoner's Dilemma Game</h1>
+        <div id="round-info"></div>
+        <div class="choices">
+            <button onclick="makeChoice('Cooperate')">Cooperate</button>
+            <button onclick="makeChoice('Defect')">Defect</button>
+        </div>
+        <div id="result"></div>
+        <div class="scores">
+            <p>Player Score: <span id="player-score">0</span></p>
+            <p>Computer Score: <span id="computer-score">0</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

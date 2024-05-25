@@ -1,0 +1,50 @@
+let playerScore = 0;
+let computerScore = 0;
+let playerMoves = [];
+let roundNumber = 1;
+const totalRounds = 20;
+
+function titForTat(playerMoves) {
+    if (playerMoves.length === 0) {
+        return "Cooperate";
+    } else {
+        return playerMoves[playerMoves.length - 1];
+    }
+}
+
+function playRound(playerChoice, computerChoice) {
+    if (playerChoice === "Cooperate" && computerChoice === "Cooperate") {
+        return [3, 3];
+    } else if (playerChoice === "Cooperate" && computerChoice === "Defect") {
+        return [0, 5];
+    } else if (playerChoice === "Defect" && computerChoice === "Cooperate") {
+        return [5, 0];
+    } else {
+        return [1, 1];
+    }
+}
+
+function updateScores(playerPoints, computerPoints) {
+    playerScore += playerPoints;
+    computerScore += computerPoints;
+    document.getElementById("player-score").textContent = playerScore;
+    document.getElementById("computer-score").textContent = computerScore;
+}
+
+function makeChoice(playerChoice) {
+    const computerChoice = titForTat(playerMoves);
+    playerMoves.push(playerChoice);
+
+    const [playerPoints, computerPoints] = playRound(playerChoice, computerChoice);
+
+    document.getElementById("round-info").textContent = `Round ${roundNumber}`;
+    document.getElementById("result").textContent = `You chose: ${playerChoice}, Computer chose: ${computerChoice}. You earned ${playerPoints} points, Computer earned ${computerPoints} points.`;
+
+    updateScores(playerPoints, computerPoints);
+
+    roundNumber++;
+    if (roundNumber > totalRounds) {
+        document.getElementById("result").textContent += " Game over!";
+        document.querySelector(".choices").style.display = "none";
+    }
+}
