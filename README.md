@@ -24,8 +24,8 @@ This is a web-based and command-line implementation of the Prisoner's Dilemma ga
 
 ### Web Version
 
-- `index.html` - The main HTML file for the game.
-- `script.js` - The JavaScript file containing the game logic and AI assistant.
+- `denemeindex.html` - The main HTML file for the game.
+- `denemescript.js` - The JavaScript file containing the game logic and AI assistant.
 
 ### Command-Line Version
 
